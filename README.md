@@ -6,8 +6,10 @@ Springleaf front end ember.js interview app. This is an [ember-cli](http://www.e
 
 1. Clone this repo into any directory
 1. `cd` into the repo's root folder
-1. Run `npm install && bower install`
-1. Run `ember server` to start the server at `http://localhost:4200`
+1. Run `npm install && ./node_modules/bower/bin/bower install`
+1. Run `npm install -g phantomjs`
+1. Run `./node_modules/ember-cli/bin/ember test`
+1. Run `./node_modules/ember-cli/bin/ember server` to start the server at `http://localhost:4200`
 
 ## Features
 
