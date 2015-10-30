@@ -27,7 +27,7 @@ test('the artist page should have a header with the artist name', function(asser
   visit('/artists/1');
 
   andThen(function() {
-    assert.equal(find('h2.artist').text(), artist.get('name'));
+    assert.equal(find('h2.artist-name').text(), artist.get('name'));
   });
 });
 
