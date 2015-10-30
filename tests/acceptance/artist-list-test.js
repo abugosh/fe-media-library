@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { make } from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 import startApp from 'fe-ember-candidate/tests/helpers/start-app';
 
@@ -46,14 +45,15 @@ test('find an artist in the list', function(assert) {
 });
 
 test('click on an artist to go to the artist page', function(assert) {
-  var artist = make('artist');
+  TestHelper.handleFindAll('artist', 10);
 
   visit('/');
 
-  click('li.artist:first a');
-
   andThen(function() {
-    assert.equal(currentURL(), '/artists/' + artist.get('id'));
+    click('ul.artists li.artist:first a');
+    andThen(function() {
+      assert.equal(currentURL(), '/artists/' + 1);
+    });
   });
 });
 
