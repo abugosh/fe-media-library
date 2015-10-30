@@ -1,1 +1,7 @@
 <h2 class="artist-name">{{model.name}}</h2>
+
+<ul class="albums">
+  {{#each model.albums key="id" as |album|}}
+  <li class="album">{{album.name}}</li>
+  {{/each}}
+</ul>

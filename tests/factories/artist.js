@@ -12,11 +12,10 @@ FactoryGuy.define('artist', {
     name: FactoryGuy.generate('name'),
     basedIn: FactoryGuy.generate('location'),
     foundingYear: FactoryGuy.generate('year'),
-    updated: FactoryGuy.generate('updated')
+    updated: FactoryGuy.generate('updated'),
   },
 
   someArtist: {
     name: "Some Artist"
   }
-
 });

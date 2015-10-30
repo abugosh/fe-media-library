@@ -2,7 +2,7 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('artist', 'Unit | Model | artist', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:album']
 });
 
 test('it exists', function(assert) {
