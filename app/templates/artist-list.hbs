@@ -1,5 +1,7 @@
 <h2>Artists</h2>
 
 <ul class="artists">
-  <li>Hello world</li>
+  {{#each model key="id" as |artist|}}
+  <li>{{artist.name}}</li>
+  {{/each}}
 </ul>
