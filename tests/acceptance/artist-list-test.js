@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
+import { make } from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 import startApp from 'fe-ember-candidate/tests/helpers/start-app';
 
@@ -41,6 +42,18 @@ test('find an artist in the list', function(assert) {
   andThen(function() {
     // This test is a place holder for now, I'll figure out the real structure later
     assert.equal(find('ul.artists li.artist:first').text(), 'Artist1');
+  });
+});
+
+test('click on an artist to go to the artist page', function(assert) {
+  var artist = make('artist');
+
+  visit('/');
+
+  click('li.artist:first a');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/artists/' + artist.get('id'));
   });
 });
 
