@@ -28,3 +28,13 @@ test('find the artist list structure', function(assert) {
     assert.ok(find('ul.artists li').length > 0);
   });
 });
+
+test('find an artist in the list', function(assert) {
+  visit('/');
+
+  andThen(function() {
+    // This test is a place holder for now, I'll figure out the real structure later
+    assert.equal(find('ul.artists li:first').text(), 'Some Artist');
+  });
+});
+
