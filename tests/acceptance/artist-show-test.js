@@ -31,3 +31,12 @@ test('the artist page should have a header with the artist name', function(asser
   });
 });
 
+test('the artist page should have a album list structure', function(assert) {
+  visit('/artists/1');
+
+  andThen(function() {
+    assert.equal(find('ul.albums').length, 1);
+    assert.ok(find('ul.albums li.album').length > 0);
+  });
+});
+
