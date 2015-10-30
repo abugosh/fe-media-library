@@ -2,6 +2,6 @@
 
 <ul class="artists">
   {{#each model key="id" as |artist|}}
-  <li>{{artist.name}}</li>
+  {{artist-li artist=artist}}
   {{/each}}
 </ul>

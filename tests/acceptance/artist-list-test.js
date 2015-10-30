@@ -30,17 +30,17 @@ test('find the artist list structure', function(assert) {
 
   andThen(function() {
     assert.equal(find('ul.artists').length, 1);
-    assert.ok(find('ul.artists li').length > 0);
+    assert.ok(find('ul.artists li.artist').length > 0);
   });
 });
 
 test('find an artist in the list', function(assert) {
-  TestHelper.handleFindAll('artist', 1);
+  TestHelper.handleFindAll('artist', 10);
   visit('/');
 
   andThen(function() {
     // This test is a place holder for now, I'll figure out the real structure later
-    assert.equal(find('ul.artists li:first').text(), 'Artist1');
+    assert.equal(find('ul.artists li.artist:first').text(), 'Artist1');
   });
 });
 
