@@ -2,7 +2,7 @@
 
 <ul class="albums">
   {{#each model.albums key="id" as |album|}}
-  <li class="album">{{album.name}}</li>
+  {{album-li album=album}}
   {{/each}}
 </ul>
 
