@@ -53,3 +53,15 @@ test('the artist page should have a link back to the main artist list', function
   });
 });
 
+test('the albums on the artist page should link to album pages', function(assert) {
+  visit('/artists/' + artist.id);
+
+  andThen(function() {
+    click('ul.albums li.album:first a');
+
+    andThen(function() {
+      assert.equal(currentURL(), '/albums/' + albums[0].id);
+    });
+  });
+});
+
