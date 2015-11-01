@@ -3,11 +3,11 @@ import { module, test } from 'qunit';
 import { make, makeList } from 'ember-data-factory-guy';
 import startApp from 'fe-ember-candidate/tests/helpers/start-app';
 
-var artist;
+var artist, albums;
 module('Acceptance | artist show', {
   beforeEach: function() {
     this.application = startApp();
-    var albums = makeList('album', 3);
+    albums = makeList('album', 3);
     artist = make('artist', {albums: albums});
   },
 
@@ -37,7 +37,19 @@ test('the artist page should have a album list structure', function(assert) {
 
   andThen(function() {
     assert.equal(find('ul.albums').length, 1);
-    assert.ok(find('ul.albums li.album').length > 0);
+    assert.equal(find('ul.albums li.album').length, albums.length);
+  });
+});
+
+test('the artist page should have a link back to the main artist list', function(assert) {
+  visit('/artists/' + artist.id);
+
+  andThen(function() {
+    click('div.back-link a');
+
+    andThen(function() {
+      assert.equal(currentURL(), '/');
+    });
   });
 });
 
