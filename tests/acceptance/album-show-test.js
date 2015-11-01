@@ -43,3 +43,12 @@ test('the album page should have a link back to the album artist', function(asse
   });
 });
 
+test('the album page should have a comment list structure', function(assert) {
+  visit('/albums/' + album.id);
+
+  andThen(function() {
+    assert.equal(find('ul.comments').length, 1);
+    assert.equal(find('ul.comments li.comment').length, 1);
+  });
+});
+
