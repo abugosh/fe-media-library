@@ -1,4 +1,10 @@
 
 <h2 class="album-name">{{model.name}}</h2>
 
+<ul class="comments">
+  {{#each model.comments key="id" as |comment|}}
+  {{comment-li comment=comment}}
+  {{/each}}
+</ul>
+
 <div class="back-link">{{#link-to 'artists.show' model.artist}}Back to Artist{{/link-to}}</div>

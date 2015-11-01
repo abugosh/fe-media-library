@@ -1,13 +1,14 @@
 import Ember from 'ember';
 import { module, test } from 'qunit';
-import { make } from 'ember-data-factory-guy';
+import { make, makeList } from 'ember-data-factory-guy';
 import startApp from 'fe-ember-candidate/tests/helpers/start-app';
 
-var album;
+var album, comments;
 module('Acceptance | album show', {
   beforeEach: function() {
     this.application = startApp();
-    album = make('album');
+    comments = makeList('comment', 5);
+    album = make('album', {comments: comments});
   },
 
   afterEach: function() {
@@ -48,7 +49,7 @@ test('the album page should have a comment list structure', function(assert) {
 
   andThen(function() {
     assert.equal(find('ul.comments').length, 1);
-    assert.equal(find('ul.comments li.comment').length, 1);
+    assert.equal(find('ul.comments li.comment').length, comments.length);
   });
 });
 

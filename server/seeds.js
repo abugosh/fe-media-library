@@ -37,13 +37,13 @@ module.exports = {
       year: 2001,
       artist_id: 1,
       total_sold: 10001,
-      comment_ids: [],
+      comment_ids: [1],
     }, {
       name: 'Bigger Album',
       year: 2002,
       artist_id: 1,
       total_sold: 10002,
-      comment_ids: [],
+      comment_ids: [2,3],
     }, {
       name: 'Hits And Stuff',
       year: 1800,
@@ -101,8 +101,16 @@ module.exports = {
 
     [{
       author: 'Evan Willum',
-      album_id: 10,
+      album_id: 1,
       message: 'Good album, but I liked the first one.',
+    }, {
+      author: 'Evan Willum',
+      album_id: 2,
+      message: 'I liked the first one.',
+    }, {
+      author: 'Evillum',
+      album_id: 2,
+      message: 'I the first one.',
     }].map(saveComment);
   },
 };
